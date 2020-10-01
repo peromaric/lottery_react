@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import lottery from './lottery';
+import web3 from './web3';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+  state = {
+    manager: ''
+  }
+  async componentDidMount() {
+    const manager = await lottery.methods.manager().call();
+    console.log(await lottery.methods.manager().call());
+    this.setState({ manager });
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>Lottery contract</h2>
+    <p>This contract is managed by { this.state.manager }</p>
+      </div>
+    );
+  }
 }
 
 export default App;
