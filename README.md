@@ -12,3 +12,5 @@ Creates a contract instance with web3 instance loaded from web3.js. Stores the c
 Issues:
 There's an annoying issue with the abi. Originally, I copy pasted the abi I got by console loging the abi of the contract instance in a testing environment. However, for some reason, it doesn't work with that abi format. I solved this issue by using JSON.stringify on that object. There's probably other ways around that, the easiest one would be getting the abi from Remix.
 
+App.js:
+Standard react App
